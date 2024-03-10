@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    </head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'stylecot.css' %}">
+
+    <body>
+        <div class="center">
+            <h1>COTAÇÃO</h1>
+        </div>
+    </head>
+<body>
+    <div class="container9">
+        <form action="add">
+            <label for="">NUMERO DA NF</label><br><br>
+            <input type="text"  name="" ><br><br>
+            
+            <label for="">QUANTIDADE</label><br><br>
+            <input type="text"  name="num1"><br><br>
+            
+            <labe for="">ALTURA</label><br><br>
+            <input type="text"  name="num2"><br><br>
+
+            <label for="">PESO</label><br><br>
+            <input type="text"  name="num3"><br><br>
+        </div>  
+ 
+
+            <div class="container10">
+            <label for="">NUMERO DA COTACAO</label><br><br>
+            <input type="text" name="First" placeholder="{{rand}}" disabled=""><br><br>
+
+            <label for="">PROFUNDIDADE</label><br><br>
+            <input type="text" name="num4"><br><br>
+            
+            <labe for="razaoSocial">LARGURA</label><br><br>
+            <input type="text" name="num5" class=""><br><br>
+
+            <label for="">VALOR DA NF</label><br><br>
+            <input type="text"  name="num6"><br><br>      
+        </div>
+
+            <div class="container11">
+            <input type="radio" name="webmaster" value="sim"/> CIF<br />
+             </div>
+
+                <div class="container12">
+                <input type="radio" name="webmaster" value="nao"/> FOB<br />
+                 </div>
+
+            <div class="but1">
+            <input type="submit">
+            <input type="submit">    
+        </div> 
+</form>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+.container9{
+    position: absolute;
+    top: 40%;    
+    left: 60%;    
+    transform: translate(-50%, -50%);
+}
+
+.container10 {
+    position: absolute;
+    top: 40%;    
+    left: 40%;    
+    transform: translate(-50%, -50%);
+}
+.but{
+    position: absolute;
+    top: 90%;    
+    left: 50%;    
+    transform: translate(-220%, -50%);
+}
+.but1{
+    position: absolute;
+    top: 90%;    
+    left: 70%;    
+    transform: translate(-220%, -50%);
+}
+.center{
+    display: flex;
+    align-items: center;    
+    justify-content: center;
+}
+
+.container11{
+    position: absolute;
+    top: 70%;    
+    left: 60%;    
+    transform: translate(-220%, -50%);
+        
+}
+
+.container12{
+    position: absolute;
+    top: 70%;    
+    left: 50%;    
+    transform: translate(-220%, -50%);
+        
+}

@@ -1,0 +1,149 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'styles.css' %}">
+
+
+
+
+
+
+
+===========================
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>COTAÇÃO</title>
+</head>
+
+<body>
+    <div class="center">
+        <h1>COTAÇÃO</h1>
+    </div>
+
+    <div class="form-row">
+
+            <form action="{% url 'formrec' %}" method="post">
+            {% csrf_token %}
+
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">CNPJ REMETENTE</label>
+                <input type="text" onblur="checkCnpj(this.value)" data-mask="00.000.000/0000-00" name="First">
+            </div>
+            
+            <div class="form-group">
+                <label for="inputPassword4">EMPRESA REMETENTE</label>
+                <input type="text" id="razaoSocial" name="First" class="form-control">
+              </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="inputAddress">ENDEREÇO REMETENTE</label>
+                <input type="text" id="razaoSocial" name="First">
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="inputAddress2">ENDEREÇO REMETENTE</label>
+                <input type="text" id="razaoSocial" name="First"><br><br>    
+              </div>   
+
+     <div class="container2">
+
+        <label for="">CNPJ DESTINATARIO</label><br><br>
+        <input type="text" onblur="checkCnpjtWO(this.value)" data-mask="00.000.000/0000-00" name="First"><br><br>
+            
+        <label for="razaoSocial">EMPRESA DESTINATARIO</label><br><br>
+        <input type="text" id="razaoSocialTwo" name="First" class="form-control"><br><br>
+
+        <label for="">LAGRADOURO</label><br><br>
+        <input type="text" id="logradouroTwo" name="First"><br><br> 
+
+        <label for="">NUMERO</label><br><br>
+        <input type="text" id="numeroTwo" name="First"><br><br> 
+
+        <label for="">BAIRRO</label><br><br>
+        <input type="text" id="bairroTwo" name="First"><br><br>
+
+        <label for="">CIDADE</label><br><br>
+        <input type="text" id="cidadeTwo" name="First"><br><br>
+            
+        <label for="">CEP</label><br><br>
+        <input type="text" id="cepTwo" name="First"><br><br> 
+
+        <label for="">TELEFONE</label><br><br>
+        <input type="text" id="telefone" name="First"><br><br>
+        
+  
+   
+    </form>
+
+        <div class="but">
+        <button type="submit" id="new">COTAR</button>  
+        
+
+        <div class="but1">
+            <a href="{% url 'cota'%}"><button id="new3">AVANÇAR</button></a>
+      
+   
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+    <script>
+
+        function checkCnpj(cnpj)
+        {
+            $.ajax({
+                'url': 'https://receitaws.com.br/v1/cnpj/' + cnpj.replace(/[^0-9]/g, ''),
+                'type': "GET",
+                'dataType': 'jsonp',
+                'success': function(data){
+                    if(data.nome == undefined){
+                        alert(data.status + ' ' + data.message)
+                    } else {
+                        document.getElementById('razaoSocial').value = data.nome;
+                        document.getElementById('logradouro').value = data.logradouro;
+                        
+                    }
+                }
+
+            })
+        }
+    </script>
+        <script>
+
+            function checkCnpjtWO(cnpj)
+            {
+                $.ajax({
+                    'url': 'https://receitaws.com.br/v1/cnpj/' + cnpj.replace(/[^0-9]/g, ''),
+                    'type': "GET",
+                    'dataType': 'jsonp',
+                    'success': function(data){
+                        if(data.nome == undefined){
+                            alert(data.status + ' ' + data.message)
+                        } else {
+                            document.getElementById('razaoSocialTwo').value = data.nome;
+                            document.getElementById('logradouroTwo').value = data.logradouro;
+                            document.getElementById('numeroTwo').value = data.numero;
+                            document.getElementById('bairroTwo').value = data.bairro;
+                            document.getElementById('cidadeTwo').value = data.municipio;
+                            document.getElementById('cepTwo').value = data.cep;
+                        }
+                    }
+    
+                })
+            }
+        </script>
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+</body>
+
+</html>
